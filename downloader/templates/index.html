@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixar Áudio do YouTube</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+h2 {
+    margin: 0; /* Remove margin do h2 para aproximar a imagem ao quadrado */
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Centralizar e adicionar espaço abaixo da imagem */
+}
+
+
+    label {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        display: block;
+        color: #333;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+    }
+
+    button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 1.1em;
+        color: #555;
+    }
+
+    footer {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #777;
+    }
+
+.logo-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Ajustar o tamanho da logo */
+.logo {
+    width: 150px;  /* Tamanho da largura da logo */
+    height: auto;  /* A altura ajustará proporcionalmente */
+}
+
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+</style>
+
+
+<body>
+
+   
+    <div class="container">
+
+        <h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" width="250px">
+            </h2>
+        <h1>Baixar Áudio do YouTube</h1>
+        <p>Insira o link do vídeo do YouTube abaixo para baixar o áudio em formato MP3.</p>
+
+        <form id="downloadForm" method="post">
+            {% csrf_token %}
+            <label for="url">URL do YouTube:</label>
+            <input type="text" id="url" name="url" placeholder="Ex: https://www.youtube.com/watch?v=example" required>
+            <button type="submit">Baixar Áudio</button>
+        </form>
+        
+
+        <div id="message">
+            <!-- Exibir mensagem de status do download aqui -->
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+        </div>
+
+        <footer>
+            <p>© 2024 YouTube Downloader | Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
